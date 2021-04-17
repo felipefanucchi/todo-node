@@ -5,17 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sequelize:init": "sequelize init"
+    "sequelize:init": "sequelize init",
+    "start": "nodemon src/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.2",
+    "sequelize": "^6.6.2"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
   }
 }

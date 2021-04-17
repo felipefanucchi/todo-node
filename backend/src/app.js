@@ -5,8 +5,8 @@ class AppController {
   constructor() {
     this.express = express()
 
-    this.express.middlewares()
-    this.express.routes()
+    this.middlewares()
+    this.routes()
   }
 
   middlewares() {
