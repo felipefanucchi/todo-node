@@ -1,8 +1,8 @@
 module.exports = {
-  host: '',
-  username: '',
-  password: '',
-  database: '',
+  host: 'db',
+  username: 'root',
+  password: 'root',
+  database: 'todonode',
   dialect: 'postgres',
   define: {
     timestamps: true,

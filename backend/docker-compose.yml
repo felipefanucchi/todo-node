@@ -4,7 +4,19 @@ services:
     app:
         build: .
         command: npm start
+        depends_on: 
+            - db
         ports:
             - "3000:3000"
         volumes:
             - ".:/home/node/app"
+    
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: root
+            POSTGRES_USER: root
+            POSTGRES_DB: todonode
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
