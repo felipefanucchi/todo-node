@@ -1,3 +1,15 @@
-const routes = require('express').Router()
+const routes = require("express").Router();
+const { User } = require("./app/models");
 
-module.exports = routes
+(async () => {
+  const user = await User.create({
+    firstName: "Felipe",
+    lastName: "Fanucchi",
+    password: "123456",
+    email: "flfanucchi@gmail.com",
+  });
+
+  console.log(user);
+})();
+
+module.exports = routes;
