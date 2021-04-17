@@ -18,5 +18,5 @@ services:
             POSTGRES_PASSWORD: root
             POSTGRES_USER: root
             POSTGRES_DB: todonode
-        volumes:
-            - ./pgdata:/var/lib/postgresql/data
+        ports: 
+            - "5432:5432"
