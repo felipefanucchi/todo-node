@@ -16,7 +16,10 @@ class SessionController {
         message: "Invalid password or username",
       });
 
-    return response.status(200).json(user);
+    return response.status(200).json({
+      user,
+      token: user.generateToken(),
+    });
   }
 }
 
