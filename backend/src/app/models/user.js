@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     validPassword(password) {
-      console.log(password);
       return bcrypt.compare(password, this.password);
     }
 

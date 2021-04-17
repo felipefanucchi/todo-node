@@ -12,8 +12,6 @@ describe("User", () => {
     });
     const compare = await bcrypt.compare("123456", user.password);
 
-    console.log(user);
-
     expect(compare).toBe(true);
   });
 });
