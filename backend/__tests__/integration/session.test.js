@@ -10,8 +10,8 @@ describe("Authentication", () => {
     const user = await User.create({
       firstName: "felipe",
       lastName: "fanucchi",
-      email: "test@test.com",
-      password: "123456 ",
+      email: "test@test2.com",
+      password: "123456",
     });
 
     const response = await request(app).post("/sessions").send({
