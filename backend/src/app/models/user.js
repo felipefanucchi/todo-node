@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+
+    validPassword(password) {
+      console.log(password);
+      return bcrypt.compare(password, this.password);
+    }
   }
 
   User.init(
@@ -39,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeSave: async (user) => {
           if (user.password) {
-            const hash = await bcrypt.hash(user.password, salt);
+            const hash = await bcrypt.hash(user.password, 8);
             user.password = hash;
           }
         },
