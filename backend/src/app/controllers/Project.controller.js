@@ -1,4 +1,4 @@
-const { Project } = require("../models");
+const { Project, Task } = require("../models");
 class ProjectController {
   async store(request, response) {
     const UserId = request.userId;
@@ -6,8 +6,12 @@ class ProjectController {
 
     try {
       const project = await Project.create({ UserId, name });
-      return response.status(200).send(project);
+
+      const projectWithTasks = await project.reload({ include: Task });
+
+      return response.status(200).send(projectWithTasks);
     } catch (error) {
+      console.log(error);
       return response.status(500).send({
         message:
           "There was an error while creating your project, please try again later",
@@ -48,6 +52,7 @@ class ProjectController {
       await project.destroy();
       return response.status(201).send();
     } catch (error) {
+      console.log(error);
       return response.status(500).send({
         message:
           "There was an error while deleting your project, please try again later",

@@ -6,7 +6,7 @@
           Welcome to
         </v-card-subtitle>
         <v-card-title class="headline pt-0">
-          <strong class="success--text">TODONODE</strong>
+          <strong class="primary--text">TODONODE</strong>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" @submit.prevent="submit">
@@ -25,7 +25,7 @@
               required
             />
             <div class="text-center">
-              <v-btn type="submit" color="success" large :disabled="loading">
+              <v-btn type="submit" color="primary" large :disabled="loading">
                 Login
               </v-btn>
               <v-btn text>
@@ -47,11 +47,11 @@ export default {
   layout: "guest",
 
   components: {
-    Logo,
+    Logo
   },
 
   head: {
-    title: "Login",
+    title: "Login"
   },
 
   mixins: [validations],
@@ -60,9 +60,9 @@ export default {
     return {
       form: {
         email: "",
-        password: "",
+        password: ""
       },
-      loading: false,
+      loading: false
     };
   },
 
@@ -80,20 +80,22 @@ export default {
       this.loading = true;
 
       try {
-        const response = await this.$auth.loginWith("local", { data: this.form });
+        const response = await this.$auth.loginWith("local", {
+          data: this.form
+        });
 
-        console.log(response)
+        console.log(response);
       } catch (e) {
-        console.log(e)
+        console.log(e);
         this.$notifier.showMessage({
           content: e.response.data.message,
-          color: "error",
+          color: "error"
         });
       } finally {
         this.loading = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

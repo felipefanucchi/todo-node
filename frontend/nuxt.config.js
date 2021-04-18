@@ -11,9 +11,9 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      { hid: "description", name: "description", content: "" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/v.png" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -23,7 +23,7 @@ export default {
   plugins: [
     // { src: '~/plugins/notifier.js', mode: 'client' },
     "~/plugins/notifier.js",
-    { src: "~/plugins/vuemask.client.js", mode: "client" },
+    { src: "~/plugins/vuemask.client.js", mode: "client" }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,7 +36,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     "@nuxtjs/stylelint-module",
     // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify",
+    "@nuxtjs/vuetify"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,17 +46,17 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     // https://auth.nuxtjs.org/#getting-started
-    "@nuxtjs/auth-next",
+    "@nuxtjs/auth-next"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_URL || "http://localhost:3000",
+    baseURL: process.env.BASE_URL || "http://localhost:3000"
   },
 
   env: {
     baseUrl: process.env.BASE_URL || "http://localhost:3000",
-    imagesUrl: process.env.IMAGES_URL || "http://localhost:3000/uploads/",
+    imagesUrl: process.env.IMAGES_URL || "http://localhost:3000/uploads/"
   },
 
   // Auth module configuration (https://auth.nuxtjs.org/guide/setup.html)
@@ -65,40 +65,40 @@ export default {
       local: {
         user: {
           property: false, // <--- Default "user"
-          autoFetch: true,
+          autoFetch: true
         },
         endpoints: {
           login: {
             url: "session",
-            method: "post",
+            method: "post"
           },
           user: {
-            url: '/user/me',
-            method: 'get',
+            url: "/user/me",
+            method: "get"
           },
-          logout: false,
-        },
-      },
+          logout: false
+        }
+      }
     },
     redirect: {
       // callback: '/login',
       logout: "/login",
       login: "/login",
-      home: "/",
+      home: "/"
     },
-    rewriteRedirects: true,
+    rewriteRedirects: true
   },
 
   // Router
   router: {
-    middleware: ["auth"],
+    middleware: ["auth"]
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: "en",
-    },
+      lang: "en"
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -114,12 +114,12 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
-    },
+          primary: colors.green.accent3
+        }
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {}
 };

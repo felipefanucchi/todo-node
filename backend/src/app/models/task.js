@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Project);
+      this.belongsTo(models.Project, {
+        onDelete: "CASCADE",
+      });
     }
   }
   Task.init(

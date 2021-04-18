@@ -37,9 +37,6 @@ class TaskController {
       return response.status(404).send({ message: "Project not found" });
     }
 
-    if (task.completed)
-      return response.status(403).send({ message: "Task already finished" });
-
     try {
       if (description) {
         task.description = description;
@@ -49,9 +46,9 @@ class TaskController {
         task.finishDate = finishDate;
       }
 
-      if (completed) {
-        task.completed = completed;
-      }
+      task.completed = completed;
+
+      console.log(completed);
 
       await task.save();
 

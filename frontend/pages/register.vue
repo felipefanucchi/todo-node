@@ -6,14 +6,10 @@
           Register today to have access to our platform
         </v-card-subtitle>
         <v-card-title class="headline pt-0">
-          <strong class="success--text">TODONODE</strong>
+          <strong class="primary--text">TODONODE</strong>
         </v-card-title>
         <v-card-text>
-          <v-form
-            v-if="!accountCreated"
-            ref="form"
-            @submit.prevent="submit"
-          >
+          <v-form v-if="!accountCreated" ref="form" @submit.prevent="submit">
             <v-row>
               <v-col col="6">
                 <v-text-field
@@ -54,10 +50,10 @@
               label="Confirm your password"
               type="password"
               :rules="[
-                (v) => {
+                v => {
                   v = !v ? '' : v;
                   return v == this.form.password || 'Password doesn\'t match';
-                },
+                }
               ]"
               required
             />
@@ -65,23 +61,21 @@
               <v-btn
                 class="mr-4"
                 type="submit"
-                color="success"
+                color="primary"
                 large
                 :disabled="loading"
               >
                 Register
               </v-btn>
-                <v-btn text>
+              <v-btn text>
                 <NuxtLink to="/login">Login</NuxtLink>
               </v-btn>
             </div>
           </v-form>
           <div v-else-if="accountCreated">
-            <v-alert type="success">
-              Your account was created with success
-              <NuxtLink to="/login" class="white--text"
-                >Back to login</NuxtLink
-              >
+            <v-alert type="primary">
+              Your account was created with primary
+              <NuxtLink to="/login" class="white--text">Back to login</NuxtLink>
             </v-alert>
           </div>
         </v-card-text>
@@ -99,11 +93,11 @@ export default {
   auth: false,
 
   components: {
-    Logo,
+    Logo
   },
 
   head: {
-    title: "Register Account",
+    title: "Register Account"
   },
 
   mixins: [validations],
@@ -115,15 +109,15 @@ export default {
         lastName: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirmPassword: ""
       },
       loading: false,
       hasParams: false,
-      accountCreated: false,
+      accountCreated: false
     };
   },
 
-  methods: { 
+  methods: {
     async submit() {
       if (!this.$refs.form.validate()) {
         return;
@@ -133,29 +127,28 @@ export default {
 
       try {
         const password = this.form.password;
-        const firstName = this.form.firstName
-        const lastName = this.form.lastName
-        const email = this.form.email
+        const firstName = this.form.firstName;
+        const lastName = this.form.lastName;
+        const email = this.form.email;
 
         await this.$axios.post("user", {
           firstName,
           lastName,
           email,
-          password,
+          password
         });
 
         this.accountCreated = true;
       } catch (e) {
-        console.log(e)
         this.$notifier.showMessage({
           content: e.response.data.message,
-          color: "error",
+          color: "error"
         });
       } finally {
         this.loading = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

@@ -1,42 +1,39 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <granito-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to our platform
-        </v-card-title>
-        <v-card-text>
-          <p>Create your first project</p>
-          <hr class="my-3">
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/project"
-          >
-            Let's go
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row justify="center" align="start">
+      <v-col cols="12" sm="4" xl="3">
+        <new-project @projectCreated="updateCreatedProjects"></new-project>
+      </v-col>
+      <v-col cols="12" sm="8" xl="9">
+        <projects :items="projects" :loading="loading"></projects>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import Logo from '../components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  head: {
+    title: "Dashboard"
   },
 
-  head: {
-    title: 'Dashboard'
+  data() {
+    return {
+      loading: true
+    };
   },
-}
+
+  async asyncData({ $axios }) {
+    const projects = await $axios.$get("dashboard");
+    const loading = false;
+    return { projects, loading };
+  },
+
+  methods: {
+    updateCreatedProjects({ project }) {
+      console.log(project);
+      this.projects.push(project);
+    }
+  }
+};
 </script>
