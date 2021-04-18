@@ -45,7 +45,6 @@ export default {
 
       try {
         const name = this.form.projectName;
-
         const response = await this.$axios.post("project", { name });
 
         this.$notifier.showMessage({
@@ -54,6 +53,7 @@ export default {
         });
 
         this.$emit("projectCreated", { project: response.data });
+        this.$refs.form.reset();
       } catch (e) {
         this.$notifier.showMessage({
           content: e.response.data.message,

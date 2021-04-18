@@ -1,5 +1,5 @@
 <template>
-  <v-form>
+  <v-form ref="form">
     <v-divider class="pb-3"></v-divider>
     <v-row align="center">
       <v-col cols="12" xl="6">
@@ -52,7 +52,15 @@
         </v-menu>
       </v-col>
       <v-col cols="12" xl="1">
-        <v-icon color="green" @click="$emit('submit', data)">
+        <v-icon
+          color="green"
+          @click="
+            () => {
+              $emit('submit', data);
+              $refs.form.reset();
+            }
+          "
+        >
           mdi-check
         </v-icon>
       </v-col>
