@@ -1,4 +1,4 @@
-const { Task } = require("../models");
+const { Task, Project } = require("../models");
 class TaskController {
   async store(request, response) {
     const { description, finishDate, projectId: ProjectId } = request.body;
@@ -65,7 +65,6 @@ class TaskController {
   }
 
   async delete(request, response) {
-    const { description, finishDate, completed } = request.body;
     const { id } = request.params;
 
     const task = await Task.findOne({ where: { id } });

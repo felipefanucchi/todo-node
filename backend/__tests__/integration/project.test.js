@@ -2,12 +2,9 @@ const request = require("supertest");
 const faker = require("faker");
 
 const app = require("../../src/app");
-const truncate = require("../utils/truncate");
 const factory = require("../factories");
 
 describe("Project Integration", () => {
-  beforeEach(async () => await truncate());
-
   it("should create a project", async () => {
     const user = await factory.create("User");
 
