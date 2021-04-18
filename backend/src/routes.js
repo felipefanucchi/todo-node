@@ -20,5 +20,7 @@ routes.post("/user", UserController.store);
 routes.use(authMiddleware);
 routes.get("/dashboard", DashboardController.index);
 routes.post("/project", ProjectController.store);
+routes.put("/project/:id", ProjectController.update);
+routes.delete("/project/:id", ProjectController.delete);
 
 module.exports = routes;

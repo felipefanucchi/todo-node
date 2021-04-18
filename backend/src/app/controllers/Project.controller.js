@@ -10,7 +10,47 @@ class ProjectController {
     } catch (error) {
       return response.status(500).send({
         message:
-          "There was an error while bringing creating your project, please try again later",
+          "There was an error while creating your project, please try again later",
+      });
+    }
+  }
+
+  async update(request, response) {
+    const { name } = request.body;
+    const { id } = request.params;
+
+    const project = await Project.findOne({ where: { id } });
+
+    if (!project)
+      return response.status(404).send({ message: "Project not found" });
+
+    try {
+      project.name = name;
+      await project.save();
+      return response.status(200).send(project);
+    } catch (error) {
+      return response.status(500).send({
+        message:
+          "There was an error while update your project, please try again later",
+      });
+    }
+  }
+
+  async delete(request, response) {
+    const { id } = request.params;
+
+    const project = await Project.findOne({ where: { id } });
+
+    if (!project)
+      return response.status(404).send({ message: "Project not found" });
+
+    try {
+      await project.destroy();
+      return response.status(201).send();
+    } catch (error) {
+      return response.status(500).send({
+        message:
+          "There was an error while deleting your project, please try again later",
       });
     }
   }
