@@ -8,6 +8,7 @@ const SessionController = require("./app/controllers/Session.controller");
 const DashboardController = require("./app/controllers/Dashboard.controller");
 const UserController = require("./app/controllers/User.controller");
 const ProjectController = require("./app/controllers/Project.controller");
+const TaskController = require("./app/controllers/Task.controller");
 
 routes.get("/", (request, response) => {
   return response.send("<h1>Hello world</h1>");
@@ -19,8 +20,11 @@ routes.post("/user", UserController.store);
 // start using middleware at this point
 routes.use(authMiddleware);
 routes.get("/dashboard", DashboardController.index);
+// Projects Routes
 routes.post("/project", ProjectController.store);
 routes.put("/project/:id", ProjectController.update);
 routes.delete("/project/:id", ProjectController.delete);
+// Task Routes
+routes.post("/task", TaskController.store);
 
 module.exports = routes;

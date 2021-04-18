@@ -13,7 +13,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   Task.init(
     {
-      description: DataTypes.STRING,
+      finishDate: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      completed: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       completed: DataTypes.BOOLEAN,
     },
     {
