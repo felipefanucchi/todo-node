@@ -18,6 +18,7 @@ module.exports = {
       },
       ProjectId: {
         type: Sequelize.DataTypes.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: {
             tableName: "Projects",

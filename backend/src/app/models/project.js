@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User);
 
       this.hasMany(models.Task, {
-        onDelete: "CASCADE",
+        onDelete: "cascade",
       });
     }
   }
