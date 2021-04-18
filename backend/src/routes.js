@@ -26,5 +26,7 @@ routes.put("/project/:id", ProjectController.update);
 routes.delete("/project/:id", ProjectController.delete);
 // Task Routes
 routes.post("/task", TaskController.store);
+routes.put("/task/:id", TaskController.update);
+routes.delete("/task/:id", TaskController.delete);
 
 module.exports = routes;

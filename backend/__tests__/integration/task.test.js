@@ -29,38 +29,38 @@ describe("Task Integration", () => {
     expect(response.status).toBe(200);
   });
 
-  // it("should not create a task without projectId", async () => {
-  //   const user = await factory.create("User");
+  it("should not create a task without projectId", async () => {
+    const user = await factory.create("User");
+    const task = {
+      description: "criar listagem de usuário",
+      completed: false,
+      finishDate: "04-19-2021",
+      projectId: null,
+    };
 
-  //   const task = {
-  //     description: faker.commerce.productDescription(),
-  //     completed: faker.datatype.boolean(),
-  //     finishDate: faker.date.future(),
-  //   };
+    const response = await request(app)
+      .post("/task")
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send(task);
 
-  //   const response = await request(app)
-  //     .post("/task")
-  //     .set("Authorization", `Bearer ${user.generateToken()}`)
-  //     .send(task);
+    expect(response.status).toBe(404);
+  });
 
-  //   expect(response.status).toBe(404);
-  // });
+  it("should not create a task with invalid projectId", async () => {
+    const user = await factory.create("User");
 
-  // it("should not create a task with invalid projectId", async () => {
-  //   const user = await factory.create("User");
+    const task = {
+      description: "criar listagem de usuário",
+      completed: false,
+      finishDate: "04-19-2021",
+      projectId: 999999,
+    };
 
-  //   const task = {
-  //     description: faker.commerce.productDescription(),
-  //     completed: faker.datatype.boolean(),
-  //     finishDate: faker.date.future(),
-  //     projectId: 999999,
-  //   };
+    const response = await request(app)
+      .post("/task")
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send(task);
 
-  //   const response = await request(app)
-  //     .post("/task")
-  //     .set("Authorization", `Bearer ${user.generateToken()}`)
-  //     .send(task);
-
-  //   expect(response.status).toBe(404);
-  // });
+    expect(response.status).toBe(404);
+  });
 });
