@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1618706400033" clover="3.2.0">
-  <project timestamp="1618706400034" name="All files">
-    <metrics statements="198" coveredstatements="186" conditionals="35" coveredconditionals="26" methods="17" coveredmethods="16" elements="250" coveredelements="228" complexity="0" loc="198" ncloc="198" packages="5" files="9" classes="9"/>
+<coverage generated="1618708697919" clover="3.2.0">
+  <project timestamp="1618708697919" name="All files">
+    <metrics statements="207" coveredstatements="191" conditionals="37" coveredconditionals="28" methods="17" coveredmethods="16" elements="261" coveredelements="235" complexity="0" loc="207" ncloc="207" packages="5" files="9" classes="9"/>
     <package name="src">
       <metrics statements="47" coveredstatements="42" conditionals="5" coveredconditionals="3" methods="4" coveredmethods="3"/>
       <file name="app.js" path="/home/dev/projects/todo-node/backend/src/app.js">
@@ -62,7 +62,7 @@
       </file>
     </package>
     <package name="src.app.controllers">
-      <metrics statements="55" coveredstatements="49" conditionals="14" coveredconditionals="11" methods="6" coveredmethods="6"/>
+      <metrics statements="64" coveredstatements="54" conditionals="16" coveredconditionals="13" methods="6" coveredmethods="6"/>
       <file name="Dashboard.controller.js" path="/home/dev/projects/todo-node/backend/src/app/controllers/Dashboard.controller.js">
         <metrics statements="8" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -104,16 +104,16 @@
         <line num="26" count="1" type="stmt"/>
       </file>
       <file name="User.controller.js" path="/home/dev/projects/todo-node/backend/src/app/controllers/User.controller.js">
-        <metrics statements="21" coveredstatements="20" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="30" coveredstatements="25" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -121,11 +121,20 @@
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
+        <line num="22" count="5" type="cond" truecount="0" falsecount="1"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.app.middleware">
@@ -211,11 +220,11 @@
         <line num="47" count="3" type="stmt"/>
         <line num="48" count="3" type="stmt"/>
         <line num="49" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="50" count="18" type="cond" truecount="1" falsecount="0"/>
-        <line num="51" count="9" type="stmt"/>
-        <line num="52" count="9" type="stmt"/>
-        <line num="53" count="9" type="stmt"/>
-        <line num="54" count="9" type="stmt"/>
+        <line num="50" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="51" count="11" type="stmt"/>
+        <line num="52" count="11" type="stmt"/>
+        <line num="53" count="11" type="stmt"/>
+        <line num="54" count="11" type="stmt"/>
         <line num="55" count="3" type="stmt"/>
         <line num="56" count="3" type="stmt"/>
         <line num="57" count="3" type="stmt"/>
