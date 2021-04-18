@@ -2,3 +2,4 @@ node_modules/
 pgdata
 package-lock.json
 __tests__/database.sqlite
+__tests__/coverage
