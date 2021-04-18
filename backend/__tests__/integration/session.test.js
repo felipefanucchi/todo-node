@@ -12,7 +12,7 @@ describe("Session Integration", () => {
       password: "123456",
     });
 
-    const response = await request(app).post("/sessions").send({
+    const response = await request(app).post("/session").send({
       email: user.email,
       password: "123456",
     });
@@ -23,7 +23,7 @@ describe("Session Integration", () => {
   it("should not auth with invalid password", async () => {
     const user = await factory.create("User");
 
-    const response = await request(app).post("/sessions").send({
+    const response = await request(app).post("/session").send({
       email: user.email,
       password: "invalid_pass",
     });
@@ -34,7 +34,7 @@ describe("Session Integration", () => {
   it("should not auth with invalid email", async () => {
     await factory.create("User");
 
-    const response = await request(app).post("/sessions").send({
+    const response = await request(app).post("/session").send({
       email: "test@test.com",
       password: "123456",
     });
@@ -47,7 +47,7 @@ describe("Session Integration", () => {
       password: "123456",
     });
 
-    const response = await request(app).post("/sessions").send({
+    const response = await request(app).post("/session").send({
       email: user.email,
       password: "123456",
     });
@@ -60,7 +60,7 @@ describe("Session Integration", () => {
 
     const response = await request(app)
       .get("/dashboard")
-      .set("Authorization", "Bearer " + user.generateToken());
+      .set("Authorization", `Bearer ${user.generateToken()}`);
 
     expect(response.status).toBe(200);
   });

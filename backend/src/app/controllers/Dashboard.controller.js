@@ -1,4 +1,4 @@
-// const { User } = require("../models");
+const { User } = require("../models");
 class DashboardController {
   async index(request, response) {
     return response.status(200).send();
