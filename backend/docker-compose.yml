@@ -1,22 +1,22 @@
 version: "3"
 
 services:
-    app:
-        build: .
-        command: npm start
-        depends_on: 
-            - db
-        ports:
-            - "3000:3000"
-        volumes:
-            - ".:/home/node/app"
-    
-    db:
-        image: postgres
-        restart: always
-        environment:
-            POSTGRES_PASSWORD: root
-            POSTGRES_USER: root
-            POSTGRES_DB: todonode
-        ports: 
-            - "5432:5432"
+  app:
+    build: .
+    command: npm run dev
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/home/node/app"
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: todonode
+    ports:
+      - "5432:5432"
