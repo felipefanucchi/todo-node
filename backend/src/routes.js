@@ -20,6 +20,8 @@ routes.post("/user", UserController.store);
 // start using middleware at this point
 routes.use(authMiddleware);
 routes.get("/dashboard", DashboardController.index);
+// User authed routes
+routes.get("/user/me", UserController.show);
 // Projects Routes
 routes.post("/project", ProjectController.store);
 routes.put("/project/:id", ProjectController.update);
