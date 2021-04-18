@@ -1,5 +1,5 @@
-const app = require('./app')
+const app = require("./app");
 
-app.listen(3000, () => {
-    console.log(`🚀 Server ready at http://localhost:3000`)
-})
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`🚀 Server ready at http://localhost:3000`);
+});

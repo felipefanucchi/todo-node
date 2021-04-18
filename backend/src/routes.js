@@ -8,7 +8,11 @@ const SessionController = require("./app/controllers/Session.controller");
 const DashboardController = require("./app/controllers/Dashboard.controller");
 const UserController = require("./app/controllers/User.controller");
 
-routes.post("/sessions", SessionController.store);
+routes.get("/", (request, response) => {
+  return response.send("<h1>Hello world</h1>");
+});
+
+routes.post("/session", SessionController.store);
 routes.post("/user", UserController.store);
 
 // start using middleware at this point
