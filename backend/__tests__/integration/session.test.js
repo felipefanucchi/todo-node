@@ -4,7 +4,7 @@ const app = require("../../src/app");
 const truncate = require("../utils/truncate");
 const factory = require("../factories");
 
-describe("Authentication", () => {
+describe("Session", () => {
   beforeEach(async () => await truncate());
 
   it("should auth with valid credentials", async () => {

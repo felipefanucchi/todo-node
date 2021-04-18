@@ -14,4 +14,10 @@ describe("User", () => {
 
     expect(compare).toBe(true);
   });
+
+  it("should create a user", async () => {
+    const user = await factory.create("User");
+
+    expect(user).toHaveProperty("id");
+  });
 });

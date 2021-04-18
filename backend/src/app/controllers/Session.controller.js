@@ -1,5 +1,5 @@
 const { User } = require("../models");
-class SessionController {
+class UserController {
   async store(request, response) {
     const { email, password } = request.body;
     const user = await User.findOne({ where: { email } });
@@ -23,4 +23,4 @@ class SessionController {
   }
 }
 
-module.exports = new SessionController();
+module.exports = new UserController();
