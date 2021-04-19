@@ -56,9 +56,9 @@
           color="green"
           @click="
             () => {
-              $emit('submit', data);
-
               if (!$refs.form.validate()) return;
+
+              $emit('submit', data);
 
               $refs.form.reset();
             }

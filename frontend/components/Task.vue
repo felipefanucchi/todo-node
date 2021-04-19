@@ -11,10 +11,9 @@
     "
   >
     <template>
-      <v-list-item-action>
-        <v-checkbox :input-value="data.completed"></v-checkbox>
-      </v-list-item-action>
-      <v-list-item-content>
+      <v-list-item-content
+        :class="data.completed ? 'text-decoration-line-through' : ''"
+      >
         <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
             <v-list-item-title v-bind="attrs" v-on="on">
