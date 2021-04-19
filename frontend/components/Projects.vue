@@ -42,6 +42,8 @@ export default {
   methods: {
     updateProjects({ id }) {
       this.items = this.items.filter(item => item.id !== id);
+
+      this.$emit("projectDeleted", id);
     }
   }
 };

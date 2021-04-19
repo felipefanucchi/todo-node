@@ -5,7 +5,11 @@
         <new-project @projectCreated="updateCreatedProjects"></new-project>
       </v-col>
       <v-col cols="12" sm="8" xl="9">
-        <projects :items="projects" :loading="loading"></projects>
+        <projects
+          @projectDeleted="udpateDeletedProjects"
+          :items="projects"
+          :loading="loading"
+        ></projects>
       </v-col>
     </v-row>
   </v-container>
@@ -31,8 +35,11 @@ export default {
 
   methods: {
     updateCreatedProjects({ project }) {
-      console.log(project);
       this.projects.push(project);
+    },
+
+    udpateDeletedProjects(id) {
+      this.projects = this.projects.filter(project => project.id !== id);
     }
   }
 };

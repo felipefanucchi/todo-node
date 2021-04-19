@@ -57,6 +57,9 @@
           @click="
             () => {
               $emit('submit', data);
+
+              if (!$refs.form.validate()) return;
+
               $refs.form.reset();
             }
           "
